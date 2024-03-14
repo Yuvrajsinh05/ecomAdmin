@@ -1,0 +1,15 @@
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+.name {
+  font-size: 5rem; /* Adjust the font size as needed */
+  font-weight: bold;
+  color: pink;
+  font-family:cursive;
+  /* font-size: 2rem; */
+  font-style: italic; /* Italicize the font */
+}
