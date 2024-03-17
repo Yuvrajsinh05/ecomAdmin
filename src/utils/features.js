@@ -12,9 +12,7 @@ export const connectDB = async () => {
 
         // Log the connected collections
         const collections = await mongoose.connection.db.collections();
-        const collectionNames = collections.map(collection => collection.collectionName);
-        console.log("Available collections:", collectionNames);
-
+        // const collectionNames = collections.map(collection => collection.collectionName);
         return connection;
     } catch (error) {
         console.error("Error connecting to MongoDB:", error);

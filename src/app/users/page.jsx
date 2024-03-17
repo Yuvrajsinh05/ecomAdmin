@@ -10,7 +10,6 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
@@ -38,14 +37,16 @@ function Row({ row }) {
             {row?.Image ?  <img style={{height:'30px',width:'30' ,borderRadius:'50%'}} src={row?.Image}/>  : <PersonIcon/>}
             
         </TableCell>
+
         <TableCell align="center" sx={{color:'white' ,border:'none'}}>{row.Name || "N/A"}</TableCell>
         <TableCell align="center" sx={{color:'white' ,border:'none'}}>{row.phone  || "N/A"}</TableCell>
         <TableCell align="center" sx={{color:'white' ,border:'none'}}>{row.email}</TableCell>
         <TableCell align="center" sx={{color:'white' ,border:'none'}}>{row.isActive ? "YES" : "NO"}</TableCell>
+        <TableCell align="center" sx={{color:'white' ,border:'none'}}>{row._id || "N/A"}</TableCell>
         <TableCell align="center" sx={{color:'white' ,border:'none'}}>{row.createdAt}</TableCell>
       </TableRow>
       <TableRow>
-        <TableCell style={{ padding:'0' ,backgroundColor:'1d1d1f' ,border:'none'}} colSpan={7}>
+        <TableCell style={{ padding:'0' ,backgroundColor:'1d1d1f' ,border:'none'}} colSpan={8}>
           <Collapse in={open} sx={{backgroundColor:'#1d1d1f'}} timeout="auto" unmountOnExit>
             <Box sx={{ margin: 1 ,backgroundColor:'gray'}}>
               <Table size="small" aria-label="purchases">
@@ -69,7 +70,7 @@ function Row({ row }) {
                       </TableCell>
                       <TableCell sx={{border:'none'}}  align="center">{order.items.length}</TableCell>
                       <TableCell sx={{border:'none'}}  align="center">{order.billingDetails.ContactNo}</TableCell>
-                      <TableCell  sx={{border:'none'}}  align="center">{order.billingDetails.address.state}/{order.billingDetails.address.city}-{order.billingDetails.address.zipcode}</TableCell>
+                      <TableCell  sx={{border:'none'}}  align="center">{order.billingDetails.address.city}/{order.billingDetails.address.state}-{order.billingDetails.address.zipcode}</TableCell>
                       <TableCell sx={{border:'none'}}  align="center">{order.total_price}</TableCell>
                       <TableCell sx={{border:'none'}}  align="center">{order.orderStatus}</TableCell>
                       <TableCell sx={{border:'none'}}  align="center">{order.paymentStatus}</TableCell>
@@ -108,13 +109,13 @@ export default function CollapsibleTable() {
           <TableRow>
             <TableCell align="center"  sx={{color:'white',border:'none'}}/>
             <TableCell  align="center" sx={{color:'white',border:'none'}}>Image</TableCell>
+
             <TableCell  align="center" sx={{color:'white', border:'none'}}>Name</TableCell>
             <TableCell  align="center" sx={{color:'white',border:'none'}}>phone</TableCell>
             <TableCell  align="center" sx={{color:'white' ,border:'none'}}>email</TableCell>
             <TableCell  align="center" sx={{color:'white' ,border:'none'}}>isActive</TableCell>
+            <TableCell  align="center" sx={{color:'white',border:'none'}}>UserID</TableCell>
             <TableCell  align="center" sx={{color:'white' ,border:'none'}}>createdAt</TableCell>
-            {/* <TableCell align="center">Email</TableCell> */}
-            {/* <TableCell align="center">Email</TableCell> */}
           </TableRow>
         </TableHead>
         <TableBody>

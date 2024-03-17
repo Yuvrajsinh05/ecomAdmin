@@ -15,6 +15,7 @@
     "@mui/icons-material": "^5.15.12",
     "@mui/material-nextjs": "^5.15.11",
     "axios": "^1.6.7",
+    "discord.js": "^14.12.1",
     "dotenv": "^16.4.5",
     "mongoose": "^8.2.1",
     "next": "14.1.2",

@@ -10,14 +10,7 @@ export const GET = async (Request) => {
         const users = await mongoose.connection.db.collection('customers').find({}).toArray()
         const Orders = await mongoose.connection.db.collection('orders').find({}).toArray()
         const CountsBrands = getCountsAndBrands(category)
-        
-        console.log("sendcountbrand",CountsBrands)
-
-
-
         const TotalAmount =getTotalPayment(Orders)
-        console.log("linetolineDebuging",TotalAmount)
-
         const JsonIt = {
             cateBrandCount:CountsBrands,
             ordersCount:Orders.length,

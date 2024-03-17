@@ -38,6 +38,7 @@ const Overview = ({stateData}) => {
     console.log("GPTcreateProfuct",GPTcreateProfuct)
     if(GPTcreateProfuct.status==200){
       router.push('/products')
+      router.refresh()
     }
   }
 

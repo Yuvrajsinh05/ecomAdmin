@@ -1,6 +1,8 @@
 import React from 'react';
 import { Grid, Paper, Typography, styled, keyframes } from '@mui/material';
 import { ChatBubbleOutline as ChatIcon } from '@mui/icons-material';
+import { Client } from 'discord.js';
+
 
 const fadeIn = keyframes`
   from {

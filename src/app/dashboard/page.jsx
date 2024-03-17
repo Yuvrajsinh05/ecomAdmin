@@ -15,6 +15,7 @@ export default function Page() {
 
     async function ApiCaller(){
         const statData = await getStateCalls()
+        console.log("what hppeingg",statData)
         if(statData?.status==200){
             setStateData(statData?.data)
         }
