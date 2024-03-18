@@ -16,9 +16,6 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <header>
-      <link rel="icon" href="https://i.ibb.co/k5Nn1Yx/Whats-App-Image-2023-06-18-at-11-50-49-PM.jpg" sizes="any" />
-      </header>
       <body className={inter.className}>
         <AppRouterCacheProvider>
         <ThemeProvider theme={theme}>
