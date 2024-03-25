@@ -21,7 +21,6 @@ export default function Page() {
         }
     }
 
-    console.log("stateData",stateData)
     return (
         <Grid container spacing={3}>
             <QuickStats stateData={stateData} />

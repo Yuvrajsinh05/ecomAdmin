@@ -1,9 +1,14 @@
-import React from 'react';
+"use client"
+
+import React, { useEffect, useMemo, useState } from 'react';
 import { Grid, Paper, Typography, styled, keyframes } from '@mui/material';
 import { ChatBubbleOutline as ChatIcon } from '@mui/icons-material';
-import { Client } from 'discord.js';
+import io from 'socket.io-client';
 
 
+
+
+console.log("where this is beigh serverd")
 const fadeIn = keyframes`
   from {
     opacity: 0;
@@ -36,12 +41,11 @@ const ChatText = styled('div')({
   marginLeft: '10px',
 });
 
-const TimeStamp = styled('div')({
-  fontSize: '10px',
-  opacity: '0.7',
-});
+
+
 
 const RecentActivity = () => {
+  const [recentLogs, setRecentLogs] = useState([])
   const activities = [
     { type: 'New product added', details: 'Product A added by John Doe', timestamp: '16/Nov/2023:23:57:36 +0000' },
     { type: 'User deleted', details: 'User "Jane Smith" deleted', timestamp: '16/Nov/2023:23:57:36 +0000' },
@@ -49,21 +53,34 @@ const RecentActivity = () => {
     { type: 'Product added', details: 'Product B added by Jane Doe', timestamp: '16/Nov/2023:23:57:39 +0000' },
   ];
 
+  useEffect(() => {
+    const socket = io('http://localhost:8670');
+
+    socket.on('connect', () => {
+      console.log('Socket connected:', socket.id);
+    });
+
+    socket.on('onRecentLog', (replymes) => {
+      console.log("replymes", replymes);
+      setRecentLogs(replymes);
+    });
+
+    return () => {
+      console.log("Disconnecting..", socket);
+      socket.disconnect();
+    };
+  }, []);
+
   return (
     <Grid item xs={12} md={12} mt={2}>
       <CustomPaper variant="outlined" square>
-        {activities.map((activity, index) => (
+        {recentLogs.map((activity, index) => (
           <div key={index}>
             <ChatBubble>
               <ChatIcon sx={{ color: '#fff', marginRight: '10px' }} />
-              <ChatText sx={{width:'100%'}}>
-                <Typography variant="body1" sx={{ color:'white', width:'100%'}}>
-
-                  <span style={{ fontWeight: 'bold' ,color: 'green', }}> {activity.type}</span> &nbsp;<b>&nbsp;:&nbsp;</b>
-                  <span style={{ color: '#fff', fontSize: '12px' }}>{activity.details}</span>
-                  <span style={{ color: '#fff', float: 'right', fontWeight: 'lighter', fontSize: '10px', textAlign: 'right' }}>
-                    {activity.timestamp}
-                  </span>
+              <ChatText sx={{ width: '100%' }}>
+                <Typography variant="body1" sx={{ color: 'white', width: '100%' }}>
+                  {activity}
                 </Typography>
               </ChatText>
             </ChatBubble>

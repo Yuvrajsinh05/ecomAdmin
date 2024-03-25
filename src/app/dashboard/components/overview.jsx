@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from 'react';
+import React, { Suspense, useState } from 'react';
 import { Grid, Paper, Typography, List, ListItem, ListItemText, IconButton, Modal, Backdrop, Fade, Box, styled ,Button } from '@mui/material';
 import { ShoppingCartOutlined, ChatOutlined, AddCircleOutline, TrendingUp, Close } from '@mui/icons-material';
 import DiamondIcon from '@mui/icons-material/Diamond';
@@ -16,7 +16,6 @@ const CustomPaper = styled(Paper)({
   backgroundColor: '#1a1a1a',
   padding: '20px',
   borderRadius: '10px',
-  //   border:'2px solid white',
   position: 'relative',
   boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.2)',
 });
@@ -24,7 +23,6 @@ const CustomPaper = styled(Paper)({
 const Overview = ({stateData}) => {
   const [open, setOpen] = useState(false);
   const router = useRouter()
-
   const handleOpen = () => {
     setOpen(true);
   };
@@ -100,10 +98,9 @@ const Overview = ({stateData}) => {
           </Grid>
         </Grid>
       </CustomPaper>
-      {/* <CustomPaper> */}
-      <RecentActivity />
-      {/* </CustomPaper> */}
-      {/* Chat Reply Popup */}
+      <Suspense fallback={"wait mother fuckr calling "}>
+         <RecentActivity />
+      </Suspense>
       <Modal
         open={open}
         onClose={handleClose}
