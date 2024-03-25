@@ -17,7 +17,7 @@ export default function RecipeReviewCard({ product }) {
     <Card sx={{ maxWidth: 345, backgroundColor: '#1d1d1f', color: 'white' }}>
       <CardHeader
         avatar={
-          <Avatar sx={{ bgcolor: red[500]  ,backgroundColor:'#111113'}} aria-label="recipe">
+          <Avatar sx={{ bgcolor: red[500], backgroundColor: '#111113' }} aria-label="recipe">
             {(product?.model && product.model[0]) || (product?.name && product.name[0]) || ''}
           </Avatar>
         }
@@ -26,7 +26,7 @@ export default function RecipeReviewCard({ product }) {
             <MoreVertIcon />
           </IconButton>
         }
-        title={<Typography variant="subtitle1" sx={{ color: 'white' }}>{(product?.category && product.category)  || ''}</Typography>}
+        title={<Typography variant="subtitle1" sx={{ color: 'white' }}>{(product?.category && product.category) || ''}</Typography>}
         subheader={<Typography variant="body2" sx={{ color: 'white' }}>{product?.type}</Typography>}
       />
       <CardMedia
@@ -37,10 +37,10 @@ export default function RecipeReviewCard({ product }) {
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary" sx={{ color: 'white' }}>
-        {(product?.model && product.model) || (product?.name && product.name) || ''}
+          {(product?.model && product.model) || (product?.name && product.name) || ''}
         </Typography>
       </CardContent>
-      <CardActions disableSpacing sx={{float:'right'}}>
+      <CardActions disableSpacing sx={{ float: 'right' }}>
         <IconButton aria-label="add to favorites">
           <FavoriteIcon />
         </IconButton>
