@@ -1,7 +1,7 @@
 "use client"
 
 import { Grid, Paper, Typography, styled } from '@mui/material';
-import RecentActivity from './orders';
+import RecentActivity from './server/orders';
 
 import { Addproduct } from './client/addproduct';
 import { Chats } from './client/chats';

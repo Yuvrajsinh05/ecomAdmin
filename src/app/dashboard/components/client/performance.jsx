@@ -1,3 +1,5 @@
+"use client"
+
 import React from 'react';
 import { Grid, Paper, Typography, List, ListItem, ListItemText, styled } from '@mui/material';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';

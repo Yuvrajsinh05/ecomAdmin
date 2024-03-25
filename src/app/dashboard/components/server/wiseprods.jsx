@@ -4,7 +4,7 @@ import DiamondIcon from '@mui/icons-material/Diamond';
 import AddReactionIcon from '@mui/icons-material/AddReaction';
 import DevicesIcon from '@mui/icons-material/Devices';
 import { ProdCountWrtCate } from '../../operations/operation';
-import { getStateCalls } from '../../reqCall';
+import { getStateCalls } from '../../operations/reqCall';
 import { WiseProdSkeleton } from '../../Loaders/wiseProdsSkeleton';
 
 

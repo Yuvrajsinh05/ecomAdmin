@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Paper, Typography, List, ListItem, ListItemText, ListItemIcon } from '@mui/material';
 import { Category, Store, ShoppingBasket, Person, Receipt, MonetizationOn } from '@mui/icons-material';
-import { BrandsCount, productCount } from '../operations/operation';
+import { BrandsCount, productCount } from '../../operations/operation';
 
 const QuickStats = ({stateData}) => {
   const paperStyle = {
